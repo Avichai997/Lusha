@@ -12,7 +12,11 @@
           {
             "name": "Docker Compose",
             "commands": ["docker compose up --build"]
-          },
+          }
+        ]
+      },
+      {
+        "splitTerminals": [
           {
             "name": "Server",
             "commands": ["cd scraping-system", "npm install", "npm run dev"]
