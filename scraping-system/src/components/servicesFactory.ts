@@ -5,10 +5,7 @@ import { EmptyObject, IPopulateOptions } from '../types';
 import APIFeatures from '../utils/ApiFeatures';
 import AppError from '../utils/AppError';
 
-export const createOne = async <T>(
-  Model: Model<T>,
-  req: Request<EmptyObject, T, Partial<T>>
-) => {
+export const createOne = async <T>(Model: Model<T>, req: Request<EmptyObject, T, Partial<T>>) => {
   const doc: T = await Model.create(req.body);
 
   return doc;
@@ -25,8 +22,7 @@ export const getAll = async <T>(
     .limitFields()
     .paginate();
 
-  if (populateOptions)
-    features.query = features.query.populate(populateOptions);
+  if (populateOptions) features.query = features.query.populate(populateOptions);
 
   const doc: T[] = await features.query;
 
@@ -41,8 +37,7 @@ export const getOne = async <T>(
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   let query: Query<any, T> = Model.findById(req.params.id);
   if (populateOptions)
-    (query as Query<T[], T, object, T, 'find'>) =
-      query.populate(populateOptions);
+    (query as Query<T[], T, object, T, 'find'>) = query.populate(populateOptions);
 
   const doc: T = await query;
   if (!doc) throw new AppError('Record not found', StatusCodes.NOT_FOUND);
@@ -50,10 +45,7 @@ export const getOne = async <T>(
   return doc;
 };
 
-export const updateOne = async <T>(
-  Model: Model<T>,
-  req: Request<{ id: string }>
-) => {
+export const updateOne = async <T>(Model: Model<T>, req: Request<{ id: string }>) => {
   delete req.body._id;
   delete req.body.id;
 
@@ -88,10 +80,7 @@ export const bulkUpdate = async <T>(Model: Model<T>, req: Request) => {
   return docs;
 };
 
-export const deleteOne = async <T>(
-  Model: Model<T>,
-  req: Request<{ id: string }, null, null>
-) => {
+export const deleteOne = async <T>(Model: Model<T>, req: Request<{ id: string }, null, null>) => {
   const doc = await Model.findByIdAndDelete(req.params.id);
   if (!doc) throw new AppError('Record not found', StatusCodes.NOT_FOUND);
 
