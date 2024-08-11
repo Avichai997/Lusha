@@ -9,9 +9,6 @@ services:
       - 9234:9234 # For VS Code debugger
     depends_on:
       - mongo
-    environment:
-      - NODE_ENV=development
-      - MONGO_CONN=mongodb://mongo:27017/scraping-system
     volumes:
       - ./scraping-system:/app
 

@@ -5,15 +5,33 @@ import catchAsync from '../../utils/catchAsync';
 import parse from 'lusha-mock-parser';
 import AppError from '../../utils/AppError';
 import Url from '../Url/Url.model';
+import { logger } from '../../utils/logger';
+
+const parseAndSaveUrl = async (url: string) => {
+  const existingUrl = await Url.findOne({ url });
+  if (existingUrl) {
+    logger.info(`URL already exists in the database: ${url}`);
+    return existingUrl;
+  }
+
+  const result = parse(url);
+
+  const createdUrl = await Url.create({ url, html: result.html, links: result.links });
+
+  for (const link of result.links) {
+    await parseAndSaveUrl(link);
+  }
+
+  return createdUrl;
+};
 
 export const parseUrl = catchAsync(async (req, res) => {
   const { url } = req.body;
 
   if (!url) throw new AppError('URL is required', StatusCodes.BAD_REQUEST);
 
-  const result = parse(url);
+  const createdUrl = await parseAndSaveUrl(url);
 
-  const createdUrl = await Url.create({ url, html: result.html, links: result.links });
   res.status(StatusCodes.CREATED).json(createdUrl);
 });
 
