@@ -1,14 +1,7 @@
 {
-  "ignore": ["node_modules", "dist", "lib", "build"],
+  "ignore": [".git", "node_modules", "dist", "lib", "build"],
   "verbose": false,
-  "watch": [
-    "src",
-    "tsconfig.json",
-    "nodemon.json",
-    ".env",
-    ".env.dev",
-    ".env.prod"
-  ],
+  "watch": ["src", "tsconfig.json", "nodemon.json", ".env", ".env.dev", ".env.prod"],
   "execMap": {
     "ts": "node --require ts-node/register"
   },

@@ -7,8 +7,9 @@
       "request": "attach",
       "port": 9234,
       "restart": true,
-      "localRoot": "${workspaceFolder}/scraping-system"
-      // "remoteRoot": "/app",
+      // Allow only one of the following:
+      // "localRoot": "${workspaceFolder}/scraping-system", // Allow this for LOCAL debugging
+      "remoteRoot": "/app" // Allow this for DOCKER debugging
     }
   ]
 }

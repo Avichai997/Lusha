@@ -58,7 +58,7 @@ const sendErrorDev = (error: AppError, res: Response) => {
     stack: error.stack,
   };
 
-  logger.error(`ERROR 💥 ${error}`);
+  logger.error(`ERROR 💥  ${error.message}. stack :${error.stack}  `);
 
   res.status(error.statusCode).json(errorResponse);
 };
@@ -87,9 +87,9 @@ const globalErrorHandler: ErrorRequestHandler = (err, _req, res, _next) => {
   error.statusCode = err.statusCode || StatusCodes.INTERNAL_SERVER_ERROR;
   error.status = err.status || 'error';
   error.message = err.message;
-
+  error.stack = err.stack;
   // Determine environment
-  const isDevError = ['development', 'local', 'develop', 'staging'].includes(NODE_ENV);
+  const isDevError = ['development', 'local_dev', 'local', 'develop', 'staging'].includes(NODE_ENV);
   const isProdError = NODE_ENV === 'production';
 
   if (isDevError) {

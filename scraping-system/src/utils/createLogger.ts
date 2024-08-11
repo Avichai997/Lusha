@@ -107,6 +107,3 @@ export const createLogger = (serviceName: string, version: string) => {
   return { baseLogger, logger };
 };
 
-export const pinoHttpMiddleware = (app: Express, logger: Logger<never>) => {
-  app.use(pinoHttp({ logger }));
-};
