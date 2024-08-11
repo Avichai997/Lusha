@@ -12,6 +12,10 @@
           {
             "name": "Docker Compose",
             "commands": ["docker compose up --build"]
+          },
+          {
+            "name": "Server",
+            "commands": ["cd scraping-system", "npm install", "npm run dev"]
           }
         ]
       }
