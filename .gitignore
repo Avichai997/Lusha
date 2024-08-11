@@ -1,0 +1,21 @@
+# Node modules directory
+node_modules/
+
+# Logs
+*.log
+
+# Environment variables
+.env
+
+# MacOS system files
+.DS_Store
+
+# Coverage directory
+coverage/
+
+# Built files and directories
+dist/
+build/
+
+# Ignore Docker files
+docker-compose.override.yml

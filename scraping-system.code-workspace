@@ -1,0 +1,20 @@
+{
+  "folders": [
+    {
+      "path": "."
+    }
+  ],
+  "settings": {
+    "restoreTerminals.keepExistingTerminalsOpen": false,
+    "restoreTerminals.terminals": [
+      {
+        "splitTerminals": [
+          {
+            "name": "Docker Compose",
+            "commands": ["docker compose up --build"]
+          }
+        ]
+      }
+    ]
+  }
+}

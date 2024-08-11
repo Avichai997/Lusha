@@ -1,0 +1,14 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "scraping-system_service",
+      "type": "node",
+      "request": "attach",
+      "port": 9234,
+      "restart": true,
+      "localRoot": "${workspaceFolder}/scraping-system"
+      // "remoteRoot": "/app",
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "eslint.workingDirectories": [
+    {
+      "mode": "auto"
+    }
+  ],
+  "editor.formatOnSave": true,
+  "editor.formatOnSaveMode": "file",
+  "files.autoSave": "afterDelay",
+  "editor.formatOnPaste": true,
+  "editor.mouseWheelZoom": true,
+  "prettier.printWidth": 100,
+  "eslint.enable": true,
+  "editor.formatOnType": true
+}
