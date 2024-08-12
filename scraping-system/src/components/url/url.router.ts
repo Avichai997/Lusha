@@ -109,8 +109,8 @@ router.route('/').delete(deleteAllUrls);
  *                   type: string
  *                 links:
  *                   type: array
- *                     items:
- *                       type: string
+ *                   items:
+ *                     type: string
  *       404:
  *         description: URL not found
  */
