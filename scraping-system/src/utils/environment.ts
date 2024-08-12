@@ -6,10 +6,8 @@ config();
 const zRequired = () => z.string().min(1);
 
 const envSchema = z.object({
-  // App:
   PORT: zRequired(),
   NODE_ENV: zRequired(),
-  // Mongo Database:
   MONGO_CONN: zRequired(),
 });
 

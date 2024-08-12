@@ -21,7 +21,6 @@ app.all('*', (req, _res, next) =>
   )
 );
 
-// Catch errors:
 app.use(globalErrorHandler);
 
 export default app;

@@ -10,7 +10,7 @@ jest.mock('lusha-mock-parser');
 let mongoServer: MongoMemoryServer;
 
 beforeAll(async () => {
-  jest.setTimeout(60000); // 60 seconds timeout
+  jest.setTimeout(60000);
   mongoServer = await MongoMemoryServer.create();
   const uri = mongoServer.getUri();
 
@@ -57,14 +57,14 @@ describe('/api/parse Endpoint', () => {
       expect(linkUrl).toHaveProperty('url', link);
       expect(linkUrl).toHaveProperty('html');
     }
-  }, 30000); // Increase timeout to 30 seconds for this test
+  }, 30000);
 
   it('should return 400 if URL is not provided', async () => {
     const response = await request(app).post('/api/parse').send({}).expect(400);
 
     expect(response.body).toHaveProperty('status', 'fail');
     expect(response.body).toHaveProperty('message', 'URL is required');
-  }, 30000); // Increase timeout to 30 seconds for this test
+  }, 30000);
 
   it('should not save the URL if it already exists', async () => {
     const url = 'https://example.com';
@@ -83,5 +83,5 @@ describe('/api/parse Endpoint', () => {
 
     const urls = await Url.find({ url });
     expect(urls).toHaveLength(1);
-  }, 30000); // Increase timeout to 30 seconds for this test
+  }, 30000);
 });

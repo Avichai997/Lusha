@@ -34,7 +34,7 @@ const getCallerFile = (): string => {
       }
     }
   } catch (e) {
-    // Empty block to catch errors
+    console.error(e);
   }
   Error.prepareStackTrace = originalFunc;
   const relativeFile = callerFile ? path.relative(process.cwd(), callerFile) : 'unknown';
@@ -106,4 +106,3 @@ export const createLogger = (serviceName: string, version: string) => {
 
   return { baseLogger, logger };
 };
-

@@ -4,7 +4,6 @@ module.exports = {
   testPathIgnorePatterns: [
     '/node_modules/',
     '/dist/',
-    // Ignore the setup and teardown files so Jest doesn't run them as tests
     '/src/__tests__/jest.setup.ts',
     '/src/__tests__/globalSetup.ts',
     '/src/__tests__/globalTeardown.ts',
