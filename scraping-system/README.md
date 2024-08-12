@@ -63,7 +63,7 @@ docker compose -f docker-compose.prod.yml up --build
 cd scraping-system
 npm install
 npm run build
-npm run start:prod
+npm run start:prod  # (make sure you have mongoDB instance with the correct URI)
 ```
 
 The build output will be placed in the `dist/` directory.
@@ -141,9 +141,34 @@ Using Swagger is an easy and efficient way to test your API during development w
 
 ## Assumptions and Notes
 
-- The project uses a mock parser (`"lusha-mock-parser"`) to simulate the URL parsing process. This can be replaced with a real parser in a production environment.
+- The project uses a mock parser (`"lusha-mock-parser"`) to simulate the URL parsing process. **This can be replaced with a real parser in a production environment**.
 - The project includes error handling for common issues like missing URLs, invalid input, and database errors.
 - The Docker configuration is set up for both development and production environments, with separate Dockerfiles and Compose files for each.
+
+## Future Improvements
+
+1. **Error Handling**
+
+   - Provide more detailed error messages and consider adding a retry mechanism for transient errors like network issues.
+
+2. **Scalability**
+
+   - Add load balancing to distribute traffic across multiple instances. Consider using async processing with RabbitMQ or Redis for large-scale scraping.
+
+3. **Security**
+
+   - Implement stricter input validation, rate limiting, and add authentication to protect the API from abuse.
+
+4. **Database**
+
+   - Optimize MongoDB with indexing and consider sharding if the dataset grows significantly.
+
+5. **Testing**
+
+   - Expand with E2E tests and include performance testing to identify bottlenecks.
+
+6. **CI/CD**
+   - Set up a CI/CD pipeline for automated testing and deployment. Separate development, staging, and production environments.
 
 ## Project Structure
 
