@@ -1,24 +1,20 @@
 version: '3.8'
 
 services:
-  server_dev:
+  server_prod:
     build:
       context: ./scraping-system
-      dockerfile: local.Dockerfile
+      dockerfile: Dockerfile
     ports:
       - 3000:3000
       - 9234:9234 # For VS Code debugger
     depends_on:
       - mongo
-    volumes:
-      - ./scraping-system:/app
 
   mongo:
     image: mongo:latest
-    ports:
-      - '27018:27017'
     volumes:
-      - mongo-data:/data/db
+      - mongo_data:/data/db
 
 volumes:
-  mongo-data:
+  mongo_data:

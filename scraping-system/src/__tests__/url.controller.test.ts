@@ -1,10 +1,7 @@
 import request from 'supertest';
 import app from '../app';
 import UrlService from '../components/url/url.service';
-import Url from '../components/url/url.model';
-import parse from 'lusha-mock-parser';
 import AppError from '../utils/AppError';
-import mongoose from 'mongoose';
 
 jest.mock('../components/url/url.service');
 jest.mock('lusha-mock-parser');
