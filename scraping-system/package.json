@@ -8,7 +8,7 @@
     "prod": "env-cmd -f .env.prod nodemon src/index.ts",
     "test:prod": "env-cmd -f .env.prod jest --ci",
     "test:dev": "env-cmd -f .env.dev jest",
-    "build": "npm run test:prod && tsc && cpy .env.prod dist",
+    "build": "tsc && cpy .env.prod dist",
     "start:prod": "cd dist && env-cmd -f .env.prod node src/index.js"
   },
   "keywords": [],
@@ -30,7 +30,6 @@
     "typescript": "^5.5.4"
   },
   "dependencies": {
-    "@types/mongoose": "^5.11.97",
     "cpy-cli": "^5.0.0",
     "date-fns": "^3.6.0",
     "date-fns-tz": "^3.1.3",

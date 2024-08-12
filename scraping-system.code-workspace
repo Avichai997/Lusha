@@ -12,6 +12,10 @@
           {
             "name": "Docker Compose",
             "commands": ["docker compose up --build"]
+          },
+          {
+            "name": "Docker Compose-Prod",
+            "commands": ["docker compose -f docker-compose.prod.yml up --build"]
           }
         ]
       },
