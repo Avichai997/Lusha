@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "env-cmd -f .env.dev nodemon src/index.ts",
-    "prod": "env-cmd -f .env.prod node dist/index.js",
+    "prod": "env-cmd -f .env.prod nodemon src/index.ts",
     "test:prod": "env-cmd -f .env.prod jest --ci",
     "test:dev": "env-cmd -f .env.dev jest",
     "build": "npm run test:prod && tsc && cpy .env.prod dist",

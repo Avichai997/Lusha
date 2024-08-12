@@ -1,4 +1,11 @@
 import swaggerJSDoc, { Options } from 'swagger-jsdoc';
+import path from 'path';
+import { NODE_ENV } from './environment';
+
+const apiPath = path.join(
+  __dirname,
+  NODE_ENV === 'production' ? '../components/**/*.js' : '../components/**/*.ts'
+);
 
 const options: Options = {
   definition: {
@@ -15,7 +22,7 @@ const options: Options = {
       },
     ],
   },
-  apis: ['./src/**/*.ts'], // Path to the API docs
+  apis: [apiPath],
 };
 
 const swaggerSpec = swaggerJSDoc(options);
