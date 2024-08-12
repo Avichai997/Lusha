@@ -1,6 +1,7 @@
 {
   "name": "scraping-system",
   "version": "1.0.0",
+  "author": "Avichai Iluz",
   "main": "index.js",
   "scripts": {
     "dev": "env-cmd -f .env.dev nodemon src/index.ts",
@@ -11,7 +12,6 @@
     "start:prod": "cd dist && env-cmd -f .env.prod node src/index.js"
   },
   "keywords": [],
-  "author": "",
   "license": "ISC",
   "description": "",
   "devDependencies": {
