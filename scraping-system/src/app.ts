@@ -1,4 +1,6 @@
 import express from 'express';
+import swaggerUi from 'swagger-ui-express';
+import swaggerSpec from './utils/swaggerOptions'; // Import the Swagger spec
 import healthRouter from './components/health/health.router';
 import AppError from './utils/AppError';
 import globalErrorHandler from './utils/errorHandler';
@@ -11,8 +13,9 @@ const app = express();
 app.use(express.json());
 app.use(pinoHttp({ logger }));
 
-app.use('/health', healthRouter);
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
+app.use('/health', healthRouter);
 app.use('/api/parse', urlRouter);
 
 app.all('*', (req, _res, next) =>
