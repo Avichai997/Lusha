@@ -3,7 +3,7 @@ import healthRouter from './components/health/health.router';
 import AppError from './utils/AppError';
 import globalErrorHandler from './utils/errorHandler';
 import { StatusCodes } from 'http-status-codes';
-import urlRouter from './components/Url/Url.router';
+import urlRouter from './components/url/url.router';
 import { logger } from './utils/logger';
 import { pinoHttp } from 'pino-http';
 

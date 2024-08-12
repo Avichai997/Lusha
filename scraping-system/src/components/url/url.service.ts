@@ -1,18 +1,10 @@
 import { Request } from 'express';
-import {
-  createOne,
-  deleteOne,
-  getAll,
-  getOne,
-  updateOne,
-} from '../servicesFactory';
-import Url from './Url.model';
+import { createOne, deleteMany, deleteOne, getAll, getOne, updateOne } from '../servicesFactory';
+import Url from './url.model';
 import { EmptyObject, UrlType } from '../../types';
 
 namespace UrlService {
-  export const getAllUrls = (
-    req: Request<Record<string, string>, UrlType[], EmptyObject>
-  ) => {
+  export const getAllUrls = (req: Request<Record<string, string>, UrlType[], EmptyObject>) => {
     const urls = getAll(Url, req);
 
     return urls;
@@ -38,6 +30,12 @@ namespace UrlService {
 
   export const deleteUrl = (req: Request<{ id: string }, null, null>) => {
     const url = deleteOne(Url, req);
+
+    return url;
+  };
+
+  export const deleteAllUrls = (req: Request) => {
+    const url = deleteMany(Url);
 
     return url;
   };

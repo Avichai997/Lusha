@@ -1,10 +1,10 @@
 import { Request } from 'express';
 import { StatusCodes } from 'http-status-codes';
-import UrlService from './Url.service';
+import UrlService from './url.service';
 import catchAsync from '../../utils/catchAsync';
 import parse from 'lusha-mock-parser';
 import AppError from '../../utils/AppError';
-import Url from '../Url/Url.model';
+import Url from './url.model';
 import { logger } from '../../utils/logger';
 
 const parseAndSaveUrl = async (url: string) => {
@@ -57,5 +57,10 @@ export const updateUrl = catchAsync(async (req: Request<{ id: string }>, res) =>
 
 export const deleteUrl = catchAsync(async (req: Request<{ id: string }>, res) => {
   await UrlService.deleteUrl(req);
+  res.status(StatusCodes.NO_CONTENT).json(null);
+});
+
+export const deleteAllUrls = catchAsync(async (req: Request<{ id: string }>, res) => {
+  await UrlService.deleteAllUrls(req);
   res.status(StatusCodes.NO_CONTENT).json(null);
 });
