@@ -15,7 +15,6 @@ bootstrap()
   .then(async () => {
     app.listen(PORT, () => {
       logger.info(`Server is up and running at: ${PORT}`);
-      console.log(`Server is up and running at: ${PORT}`);
     });
 
     process.on('unhandledRejection', unhandledRejectionHandler);

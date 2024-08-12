@@ -1,4 +1,4 @@
-import { Response, ErrorRequestHandler } from 'express';
+import { ErrorRequestHandler } from 'express';
 import mongoose from 'mongoose';
 import { StatusCodes } from 'http-status-codes';
 import AppError from './AppError';

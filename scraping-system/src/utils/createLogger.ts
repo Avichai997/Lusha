@@ -1,6 +1,4 @@
 import pino, { Logger, LogFn } from 'pino';
-import { pinoHttp } from 'pino-http';
-import { Express } from 'express';
 import { format } from 'date-fns';
 import { toZonedTime } from 'date-fns-tz';
 import path from 'path';
