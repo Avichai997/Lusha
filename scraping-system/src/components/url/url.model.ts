@@ -14,6 +14,6 @@ const urlSchema = new Schema<UrlType>(
   }
 );
 
-const ChatRoom = model<UrlType>('Url', urlSchema);
+const Url = model<UrlType>('Url', urlSchema);
 
-export default ChatRoom;
+export default Url;
